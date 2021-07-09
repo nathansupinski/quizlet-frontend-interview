@@ -18,21 +18,21 @@ export class FormValidators {
     }
 
 
-    customCityValidator(cityValue: string){
+    customCityValidator(cityValue: string){ //wrap the validator in a function to provide params in the closure
         return (control: FormControl) => {
             let userCity = control.value;
             return userCity === cityValue ? null : {wrongCity: true};
         }
     }
 
-    asyncCityValidator(term: IStateQuestion){
+    asyncCityValidator(term: IStateQuestion){ //work in progress async validator to do form validation against a backend
         return (control: AbstractControl): Observable<ValidationErrors> | null => {
             let termToCheck = {...term};
             termToCheck.definition = control.value;
 
 
-
-            return timer(500).pipe(switchMap(()=> {
+            //probably need to define this as a class that extends AsyncValidator but then need to find a way to wrap it to pass the question context
+            return timer(500).pipe(switchMap(()=> { //angular resubscribes to the latest observable from an async validator so this should be ok
                 return this.checkAnswerService.checkAnswer(termToCheck).pipe(
                     //debounceTime(500),
                     map((response)=>{
@@ -45,16 +45,6 @@ export class FormValidators {
                 )
             }))
 
-            //
-            // return this.checkAnswerService.checkAnswer(termToCheck).pipe(
-            //     //debounceTime(500),
-            //     map((response)=>{
-            //         if(response === true){
-            //             return null;
-            //         }
-            //         return {wrongCity: true}
-            //     })
-            // )
         }
     }
 

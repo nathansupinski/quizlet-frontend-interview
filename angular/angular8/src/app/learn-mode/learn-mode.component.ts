@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {FormValidators} from "../utils/form-validators";
-import {debounce, debounceTime} from "rxjs/operators";
+import { debounceTime} from "rxjs/operators";
 import {Subscription} from "rxjs";
 import {IStateQuestion} from "../interfaces/city.interfaces";
 import {CheckAnswerService} from "../services/check-answer.service";
@@ -44,7 +44,7 @@ export class LearnModeComponent implements OnInit, OnDestroy {
               Validators.required,
               Validators.minLength(2),
               this.formValidators.isEmptyStringValidator,
-              this.formValidators.customCityValidator(term.definition),
+              this.formValidators.customCityValidator(term.definition), //validate that the correct city is entered
               //this.formValidators.asyncCityValidator(term)
           ]);
       });
@@ -66,6 +66,7 @@ export class LearnModeComponent implements OnInit, OnDestroy {
   }
 
   submitForm(){
+      //simple test for validating submitted data against backend
     this.checkAnswerService.checkAnswer(this.terms[0]).subscribe((res) => {console.log(res)});
   }
 
