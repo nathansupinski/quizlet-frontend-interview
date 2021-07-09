@@ -1,9 +1,27 @@
 <main id="root">
   <div class="LearnMode">
-    <h1 class="LearnMode-prompt">{{terms[0].word}}</h1>
-    <form class="LearnMode-form">
-      <input autofocus class="LearnMode-input" type="text" />
-      <button class="LearnMode-submit" type="submit">Submit</button>
+    <h1 class="LearnMode-prompt">{{activeTerm.word}}</h1>
+    <form class="LearnMode-form" [formGroup]="learnForm">
+      <mat-form-field class="form-container" color="primary">
+        <input matInput autofocus formControlName="cityGuess" class="LearnMode-input" type="text" />
+        <mat-error *ngIf="learnForm.get('cityGuess').hasError('required')">You must enter a guess</mat-error>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button class="LearnMode-submit" type="submit" (click)="submit()" [disabled]="learnForm.invalid">Submit</button>
+      </div>
+
     </form>
+  </div>
+
+  <div *ngIf="guessCorrect">
+    Your guess is correct!
+  </div>
+
+  <div *ngIf="guessCorrect === false">
+    Your guess is incorrect!
+  </div>
+
+  <div *ngIf="showAnswer">
+    The correct answer is {{activeTerm.definition}}
   </div>
 </main>
