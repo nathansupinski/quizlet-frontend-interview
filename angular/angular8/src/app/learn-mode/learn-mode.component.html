@@ -1,9 +1,23 @@
 <main id="root">
-  <div class="LearnMode">
-    <h1 class="LearnMode-prompt">{{terms[0].word}}</h1>
-    <form class="LearnMode-form">
-      <input autofocus class="LearnMode-input" type="text" />
-      <button class="LearnMode-submit" type="submit">Submit</button>
-    </form>
-  </div>
+    <div class="LearnMode">
+            <div class="nav-area">
+
+            </div>
+<!--        <form class="LearnMode-form" [formGroup]="cityForm">-->
+            <div class="question-container">
+                <app-form-item *ngFor="let term of terms" [cityForm]="cityForm" [question]="term"></app-form-item>
+            </div>
+
+            <div class="submit-container">
+
+
+                    <button mat-flat-button color="primary" class="LearnMode-submit" type="submit" [disabled]=cityForm.invalid (click)="submitForm()">Submit</button>
+
+
+
+
+
+            </div>
+<!--        </form>-->
+    </div>
 </main>

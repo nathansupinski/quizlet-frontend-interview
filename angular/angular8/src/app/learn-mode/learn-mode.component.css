@@ -6,7 +6,9 @@ body {
 }
 
 .LearnMode {
-  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr;
 }
 
 .LearnMode-prompt {
@@ -26,17 +28,17 @@ body {
 }
 
 .LearnMode-submit {
-  background: #1f6fd9;
-  border-radius: 2px;
-  border: 1px solid #1d66c8;
-  color: #fff;
-  display: inline-block;
-  font-size: 14px;
-  font-weight: 500;
-  height: 40px;
-  line-height: 2.14;
-  outline: 0 none;
-  padding: 0 20px;
-  text-align: center;
-  cursor: pointer;
+  /*width: 60px;*/
+}
+
+.submit-container {
+  align-self: center;
+}
+
+.city-input-field {
+  height: 150px;
+}
+
+.test {
+  height: 400px;
 }

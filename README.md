@@ -15,3 +15,24 @@ You're welcome to use the framework, language, and build process you're most fam
 **Bottom line**: We want you to be successful, so please pick the option that you feel most at-ease with.
 
 **Questions**? We're happy to help. Just email your recruiter and we'll get back to you.
+
+
+
+**Notes for prep**
+1. debounce
+2. unit tests
+3. show error messages
+4. form validation
+
+
+speak to examples quizlet careers page values.
+https://quizlet.com/careers
+
+speak about working with product management
+-maybe use sankey work as an example?
+-look at the quizlet app and provide feedback.
+
+bella cell
+510-488-9922
+
+kd.rana@quizlet.com

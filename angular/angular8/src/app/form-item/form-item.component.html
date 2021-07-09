@@ -1,0 +1,13 @@
+<div class="form-container">
+    <form [formGroup]="cityForm">
+        <h2>{{question.word}}</h2>
+        <mat-form-field class="city-input-field">
+            <input matInput autofocus formControlName="{{question.id.toString()}}" class="" type="text" />
+            <mat-error *ngIf="cityForm.get(question.id.toString()).hasError('wrongCity')">City name is wrong</mat-error>
+            <mat-error *ngIf="cityForm.get(question.id.toString()).hasError('required')">City name is required</mat-error>
+            <mat-error *ngIf="cityForm.get(question.id.toString()).hasError('emptyString')">City name is empty</mat-error>
+            <mat-error *ngIf="cityForm.get(question.id.toString()).hasError('minlength')">City must be at least 1 char</mat-error>
+        </mat-form-field>
+    </form>
+</div>
+
